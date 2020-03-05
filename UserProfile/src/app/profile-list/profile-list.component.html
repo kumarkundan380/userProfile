@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 style="margin-left: 40%">Profile List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Company Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profileDetail of profile">
+            <td>{{profileDetail.firstName}} {{profileDetail.lastName}}</td>
+            <td>{{profileDetail.designation}}</td>
+            <td>{{profileDetail.exprience.companyName}}</td>
+            <td><button (click)="deleteProfile(profileDetail.id)" class="btn btn-danger">Delete</button>
+              <button (click)="profileDetails(profileDetail.id)" class="btn btn-info" style="margin-left: 50px">Details</button>
+              <button (click)="updateProfile(profileDetail.id)" class="btn btn-primary" style="margin-left: 50px">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

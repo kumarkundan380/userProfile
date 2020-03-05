@@ -1,0 +1,102 @@
+<div class="container">
+    <div *ngIf="profile">
+        <div class="row">
+            <div class="col-lg-4 col-mg-4 col-sm-4 col-12">
+                <img id="image" [src]="image[profile.imageName]" onchange="readURL(this);" class="rounded-circle" alt="Profile" width="150" height="150">
+            </div>
+            <div class="col-lg-4 col-mg-4 col-sm-4 col-12">
+                <h3> {{profile.firstName}} {{profile.lastName}} </h3>
+                <hr id="horizontal">
+                <h4>{{profile.designation}}</h4>
+            </div>
+            <div class="col-lg-4 col-mg-4 col-sm-4 col-12" id="left">
+                <p style="margin-left: 15px;">{{profile.email}}</p>
+                <p style="margin-left: 15px;">{{profile.mobileNo}}</p>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12">
+                <h3 style="background: powderblue;">EXPERIENCE</h3>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.exprience.presentDesignation}}</h4>
+                <h5>{{profile.exprience.period}}</h5>   
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.exprience.companyName}}</h4>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-12">
+                <h3 style="background: powderblue;">EDUCATION</h3>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>MCA</h4>
+                <h6>{{profile.education.pgYear}}</h6>   
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.education.pgBoard}}</h4>
+                <h6>Passed with {{profile.education.pgPercentage}} % </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>BCA</h4>
+                <h6>{{profile.education.bscYear}}</h6>   
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.education.bscBoard}}</h4>
+                <h6>Passed with {{profile.education.bscPercentage}} % </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>Intermediate</h4>
+                <h6>{{profile.education.hscYear}}</h6>   
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.education.hscBoard}}</h4>
+                <h6>Passed with {{profile.education.hscPercentage}} % </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>Matriculation</h4>
+                <h6>{{profile.education.sscYear}}</h6>   
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h4>{{profile.education.sscBoard}}</h4>
+                <h6>Passed with {{profile.education.sscPercentage}} % </h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h3 style="background: powderblue;">SKILLS</h3>
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <h3 style="background: powderblue;">LANGUAGES</h3>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <ul *ngFor="let skill of skills">
+                    <li>{{skill}}</li>
+                </ul> 
+            </div>
+            <div class="col-lg-6 col-mg-6 col-sm-6 col-12">
+                <ul *ngFor="let language of languages">
+                    <li> {{language}} </li> 
+                </ul>    
+            </div>
+        </div><br>
+    </div>
+    <br>
+    <button (click)="list()" class="btn btn-primary">Back to Profile List</button><br>
+</div>    
+
+
