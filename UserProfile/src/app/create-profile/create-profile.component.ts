@@ -62,31 +62,18 @@ export class CreateProfileComponent implements OnInit {
     bio:['',Validators.required]
   });
   ngOnInit() {
-    this.onSubmit();
   }
 
   save(){
-    this.profile=this.profileForm.value;
-  //  console.log(this.profile);
-    
-    const upLoadData=new FormData();
-    upLoadData.append('myFile',this.selectedFile,this.selectedFile.name);
+   this.profile=this.profileForm.value;
+   const upLoadData=new FormData();
+   upLoadData.append('myFile',this.selectedFile,this.selectedFile.name);
+   this.profileService.imageUpload(upLoadData);
+   this.profile.imageName=this.imageName;
+   this.profileService.createProfile(this.profile).subscribe(data=>{
+    this.router.navigate(['/profile']);
+   }); 
 
-//  console.log(this.profileForm.value.language+"---------------");
-//  console.log(this.profile.mobileNo+"-------------");
-
-    this.profileService.imageUpload(upLoadData);
-
-    this.profile.imageName=this.imageName;
-   this.profileService.createProfile(this.profile)
-    .subscribe(data=>{
-
-    }
-    );
-  // //  this.profile=new Profile();
-    // image upload
-    
-    this.gotoList();
   }
 
   public imagePath;
@@ -113,16 +100,11 @@ export class CreateProfileComponent implements OnInit {
     }
    this.selectedFile=files[0];
    this.imageName=files[0].name;
-  // console.log(this.imageName);
   }
  
   onSubmit(){
     this.submitted=true;
     this.save();
 
-  }
-
-  gotoList(){
-    this.router.navigate(['/profile']);
   }
 }
